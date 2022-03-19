@@ -1,0 +1,75 @@
+<div class="login-title">List user</div>
+<div>
+    <input type="text" placeholder="Search" (input)="onSearch($event)">
+  </div>
+<div class="container col-9">
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control"
+         (input)="onChange($event,'name')"
+         [value]="newUser.name"/>
+      </div>
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" class="form-control"
+        (input)="onChange($event,'age')"
+        [value]="newUser.age">
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" class="form-control"
+        (input)="onChange($event,'phone')"
+        [value]="newUser.phone">
+      </div>
+      <div class="form-group">
+        <label for="avatarUrl">Avatar url</label>
+        <input type="text" id="avatarUrl" class="form-control"
+        (input)="onChange($event,'avatar')"
+        [value]="newUser.avatar">
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" [disabled]="!onValidate(newUser)" (click)="onSubmit()">Submit</button>
+      </div>
+    </form>
+  </div>
+<table class="table table-striped|sm|bordered|hover|inverse table-inverse table-responsive" >
+    <thead class="thead-inverse|thead-default">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Avartar</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersFilter">
+                <td scope="row">{{user.id}}</td>
+                <td scope="row">{{user.name}}</td>
+                <td scope="row">{{user.age}}</td>
+                <td scope="row">{{user.phone}}</td>
+                <td scope="row">
+                    <!-- <img [src]="user.avatar" alt="" height="100px" width="100px"> -->
+                    <img src = "{{user.avatar}}" alt="" height="100px" width="100px">
+                  <!-- <video controls>
+                    <source src = "{{user.avatar}}">
+                  </video> -->
+                </td>
+                <td>
+                    <button class="btn btn-danger"
+                    (click)="remove(user.id)"> Xóa</button>
+                </td>
+                <td>
+                  <button class="btn btn-info"
+                  (click)="onEdit(user)"> Edit</button>
+              </td>
+            </tr>
+        </tbody>
+</table>
+
+
+
+
+
