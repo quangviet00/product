@@ -1,0 +1,29 @@
+{
+  "students": [
+    {
+      "name": "json-serve2",
+      "class": "213",
+      "id": 1
+    },
+    {
+      "name": "fff",
+      "class": "123",
+      "id": 2
+    },
+    {
+      "name": "viẻt",
+      "class": "16315",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

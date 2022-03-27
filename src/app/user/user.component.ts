@@ -11,29 +11,33 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   users = [
     {
       id: 1,
-      name: 'viet',
-      age: 19,
-      phone: '0393235573',
-      avatar: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-6/275829911_510857153735040_4500636288896122914_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=VttN9kyn2wwAX8vMMJD&_nc_ht=scontent.fhan2-1.fna&oh=00_AT_LHgHsf6KgnKxECyXoJJ6a21f1nfRmgiBgCrJ4i8gJUA&oe=62362552'
+      name: 'Quangviet',
+      age: 20,
+      phone: '1238',
+      avatar: "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-1/273433165_636098227509062_1986472377941010933_n.jpg?stp=dst-jpg_p240x240&_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=MdqGNRafFZIAX8wouu3&tn=M8f3Ns3DCWFxY_TZ&_nc_ht=scontent.fhan14-1.fna&oh=00_AT_BtHUH38uT8chWRsuqx4otWCA_H_uJE6V9nl6wFs514A&oe=62438181"
     },
     {
       id: 2,
-      name: 'viet2',
-      age: 10,
-      phone: '0393235573',
-      avatar: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-6/275829911_510857153735040_4500636288896122914_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=VttN9kyn2wwAX8vMMJD&_nc_ht=scontent.fhan2-1.fna&oh=00_AT_LHgHsf6KgnKxECyXoJJ6a21f1nfRmgiBgCrJ4i8gJUA&oe=62362552'
+      name: 'Việt',
+      age: 22,
+      phone: '232',
+      avatar: "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-1/273433165_636098227509062_1986472377941010933_n.jpg?stp=dst-jpg_p240x240&_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=MdqGNRafFZIAX8wouu3&tn=M8f3Ns3DCWFxY_TZ&_nc_ht=scontent.fhan14-1.fna&oh=00_AT_BtHUH38uT8chWRsuqx4otWCA_H_uJE6V9nl6wFs514A&oe=62438181"
     },
     {
       id: 3,
-      name: 'viet3',
-      age: 13,
-      phone: '0393235573',
-      avatar: 'https://scontent.fhan2-1.fna.fbcdn.net/v/t39.30808-6/275829911_510857153735040_4500636288896122914_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=8bfeb9&_nc_ohc=VttN9kyn2wwAX8vMMJD&_nc_ht=scontent.fhan2-1.fna&oh=00_AT_LHgHsf6KgnKxECyXoJJ6a21f1nfRmgiBgCrJ4i8gJUA&oe=62362552'
+      name: 'Phung Quàng Việt',
+      age: 24,
+      phone: '123',
+      avatar: "https://scontent.fhan14-1.fna.fbcdn.net/v/t39.30808-1/273433165_636098227509062_1986472377941010933_n.jpg?stp=dst-jpg_p240x240&_nc_cat=104&ccb=1-5&_nc_sid=7206a8&_nc_ohc=MdqGNRafFZIAX8wouu3&tn=M8f3Ns3DCWFxY_TZ&_nc_ht=scontent.fhan14-1.fna&oh=00_AT_BtHUH38uT8chWRsuqx4otWCA_H_uJE6V9nl6wFs514A&oe=62438181"
     },
   ];
+
+  // Dinh nghia 1 mang trung gian luu ket qua search
+  // De khong bi anh huong den gia tri cua mang users goc
   usersFilter = this.users;
 
   // Dinh nghia ham xoa khi click nut Delete
@@ -84,9 +88,10 @@ export class UserComponent implements OnInit {
       return lowerCaseUserName.indexOf(unicodeValue) !== -1;
     });
   }
-  //them moi user
-  //1. định nghĩa 1 obj newUser trung gian
-  //nhận giá trị input đầu vào ,sau khi submit sẽ gán về giá trị gốc
+
+  // Them moi user
+  // 1. Dinh nghia 1 obj newUser trung gian
+  // Nhan gia tri input dau vao, sau khi submit se gan ve gia tri goc
   newUser = {
     id: 0,
     name: '',
@@ -94,62 +99,82 @@ export class UserComponent implements OnInit {
     phone: '',
     avatar: ''
   };
+
   onChange(event: any, key: string) {
-    //
+    // this.newUser.id = this.users.length + 1; // de lai khi submit moi lam
+    // js spread operator ...
     this.newUser = {
       ...this.newUser,
-      [key]: event.target.value
+      [key]: event.target.value // gia tri cua key se phai trung voi thuoc tinh cua object
     };
-    //  newUser = {
-    //   id: this.users.length + 1,
-
-
-    // };
+    // Neu key = 'name'
+    // this.newUser = {
+    //   id: 0,
+    //   name: '',
+    //   age: 0,
+    //   phone: '',
+    //   avatar: '',
+    //   name: event.target.value // Do su dung ... nen name se duoc ghi de
+    // }
     console.log(this.newUser);
+  }
 
-  };
   onSubmit() {
+    // 0. Validate
     if (!this.onValidate(this.newUser)) {
+      // Thong bao
       return;
     }
-    //1.1 kiểm tra xem sửa có phải đang sửa không
+
+    // 1.1 Kiem tra xem co phai dang sua khong
     if (this.isEdit) {
+      // gan gia tri moi cho mang
       for (let i = 0; i < this.users.length; i++) {
         if (this.users[i].id === this.newUser.id) {
           this.users[i] = this.newUser;
         }
       }
+      // Dua isEdit ve gia tri goc la false de co the them moi
       this.isEdit = false;
     } else {
+      // 1.2. Gan them id bang do dai mang + 1
       this.newUser.id = this.users.length + 1;
+      // 2. Push phan tu moi vao mang users
       this.users.push(this.newUser);
     }
 
-
-
-    this.newUser.id = this.users.length + 1;
-    this.users.push(this.newUser);
+    // 3. Gan lai gia tri goc cho newUser
     this.newUser = {
       id: 0,
       name: '',
       age: 0,
       phone: '',
       avatar: ''
-    }
+    };
   }
+
   onValidate(obj: any) {
+    // 1 trong so cac truong chua duoc nhap
+    // Hoac gia tri cua age <= 0
     if (!obj.name || !obj.age || obj.age <= '0' || !obj.phone || !obj.avatar) {
+      // if (obj.name !== '' || obj.age !== '' || obj.age != '0' .........)
       return false;
     }
+
     return true;
   }
+
+  // Sua
+  // Mac dinh se khong phai dang sua
   isEdit = false;
-  onEdit(obj: any) {
+
+  onEdit(obj :any) {
+    // Gan du lieu can sua vao newUser
     this.newUser = obj;
-    //chuyển trạng thái sửa thành true
+    // Chuyen trang thai dang sua thanh true
     this.isEdit = true;
-    //sau đó sẽ xử lý tiếp ở submit
-
-
+    // Sau do se xu ly tiep o onSubmit neu isEdit true
   }
+
+
 }

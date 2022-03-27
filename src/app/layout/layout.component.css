@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: auto;
+  padding: auto;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.menu {
+  padding: 10px;
+}
+
+.menu ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+.menu ul li {
+  display: inline-table;
+  width: 140px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.menu ul li a {
+  height: 30px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: rgb(71, 71, 71);
+  background: burlywood;
+  border-bottom: rgb(255, 0, 0);
+}
+
+main {
+  padding: 10px;
+}
+
+.img {
+  float: right;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+
+.img:hover {
+  transform: scale(1.1);
+}
+
+.text {
+  position: absolute;
+  width: 50%;
+  margin-left: 50px;
+}
+
+.text1 {
+  width: 500px;
+  padding-left: 20px;
+  padding-top: 300px;
+}
+
+.text1 h1 {
+  padding-bottom: 20px;
+}
+
+.text1 a {
+  margin-top: 50px;
+  text-decoration: none;
+  background-color: rgb(248, 151, 4);
+  text-align: center;
+}
+
+article {
+  padding-top: 900px;
+}
+
+.sanpham h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+table {
+  width: 100%;
+  padding-left: 30px;
+}
+
+.trip {
+  position: relative;
+  width: fit-content;
+  overflow: hidden;
+}
+
+.item img {
+  width: 448px;
+  height: 546px;
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  width: 100%;
+  transform: translateY(120px);
+  transition: ease-in-out 1s;
+  animation-name: fadeOut;
+  animation-duration: 1s;
+}
+
+.info h2,
+.info p {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.info button {
+  display: block;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.trip:hover .info {
+  transform: translateY(0);
+  transition: ease-in-out 1s;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+}
+
+footer {
+  background: rgb(5, 5, 70);
+  height: 50px;
+  color: rgb(255, 255, 255);
+}
+
+footer p {
+  padding: 20px;
+}
+
+footer .slec {
+  position: absolute;
+  padding-left: 1100px;
+  padding-top: 10px;
+}
+
+.inp {
+  width: 200px;
+  height: 30px;
+  border-radius: 3px;
+}
+
+.send {
+  height: 35px;
+  background: darkgoldenrod;
+  color: white;
+  width: 50px;
+  border-radius: 3px;
+}
+
+.btn {
+  margin-left: 200px;
+  border-radius: 10px;
+  background: rgb(250, 51, 51);
+  width: 150px;
+  height: 40px;
+  color: white;
+}

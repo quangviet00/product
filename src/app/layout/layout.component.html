@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./layout.component.css">
+    <title>Trang Chủ</title>
+</head>
+
+<body>
+    <header>
+        <div class="menu">
+            <ul>
+              <li><a routerLink="/product">Product</a></li>
+              <li><a routerLink="/user">User</a></li>
+              <li><a routerLink="/login">Login</a></li>
+              <li><a routerLink="/students">Student</a></li>
+            </ul>
+        </div><img src="./img/logo.png" alt="" class="logo">
+        <img src="./z2933351722211_c2302084538baee1b70275eceb027ed7.jpg" alt="" width="100%">
+
+
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+    <footer>
+        <div class="slec">
+            <input type="text" class="inp" placeholder="Email Address">
+            <input type="button" value="Send" class="send">
+        </div>
+        <p>© 2021 Qode Interactive, All Rights Reserved</p>
+
+
+    </footer>
+
+
+</body>
+
+</html>

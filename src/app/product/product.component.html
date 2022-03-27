@@ -1,52 +1,47 @@
 <div class="container">
-  {{ productForm.value | json }}
+  {{productForm.value | json}}
 </div>
 <div class="container">
-  {{ newProduct | json }}
+  {{newProduct | json}}
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-md-12">
-      <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
-        <div class="for-group">
-          <input
-            type="number"
-            class="form-control"
-            placeholder="ID"
-            name="id"
-            [(ngModel)]="newProduct.id"
-          />
-        </div>
-        <div class="for-group">
+      <form #productForm="ngForm"
+        (ngSubmit)="onSubmit(productForm.value)">
+        <div class="form-group">
           <input
             type="text"
             class="form-control"
             placeholder="Ten SP"
-            name="name"
             [(ngModel)]="newProduct.name"
+            name="name"
           />
         </div>
-        <div class="for-group">
+        <div class="form-group">
           <input
             type="text"
             class="form-control"
-            placeholder="Mo Ta SP"
-            name="description"
+            placeholder="Mo ta SP"
             [(ngModel)]="newProduct.description"
+            name="description"
           />
         </div>
-        <div class="for-group">
+        <div class="form-group">
           <input
-            type="number"
+            type="text"
             class="form-control"
             placeholder="Gia SP"
-            name="price"
             [(ngModel)]="newProduct.price"
+            name="price"
           />
         </div>
-        <div class="for-group">
-          <button class="btn btn-primary" type="submit">Tạo Mới</button>
+        <div class="form-group">
+          <button
+            class="btn btn-primary"
+            type="submit"
+          >Tao moi</button>
         </div>
       </form>
     </div>
@@ -54,32 +49,16 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Tên SP</th>
-            <th>Mô Tả</th>
-            <th>Giá</th>
+            <th>Ten SP</th>
+            <th>Mo ta</th>
+            <th>Gia</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>1</td>
-            <td>IPhone 12</td>
-            <td>Mô Tả Iphone 12</td>
+            <td>AI PHONE 12</td>
+            <td>MO TA AI PHONE</td>
             <td>12000000</td>
-          </tr>
-          <tr *ngFor="let p of product">
-            <td>{{ p.id }}</td>
-            <td>{{ p.name }}</td>
-            <td>{{ p.description }}</td>
-            <td>{{ p.price }}</td>
-            <td>
-              <button class="btn btn-danger" (click)="remove(p.id)">
-                Xóa
-              </button>
-            </td>
-            <td>
-              <button class="btn btn-info" (click)="onEdit(p)">Edit</button>
-            </td>
           </tr>
         </tbody>
       </table>

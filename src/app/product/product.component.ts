@@ -11,36 +11,14 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  products = [
 
-  ]
-  newProduct =
-    {
-      id:0,
-      name:'',
-      description:'',
-      price:0
-    }
-    product = Array();
-    onSubmit(data: any){
-
-      this.product.push(data);
-    }
-    remove(pId: number) {
-      // this.users ~ thuoc tinh users cua class UserComponent
-      this.product = this.product.filter(function (p) {
-        return p.id !== pId
-      });
-    }
-    isEdit = false;
-    onEdit(obj: any){
-      this.newProduct = obj;
-    //chuyển trạng thái sửa thành true
-    this.isEdit = true;
-
-    }
-
-
+  newProduct = {
+    name: '',
+    description: '',
+    price: 0
   }
 
-
+  onSubmit(data :any) {
+    console.log(data);
+  }
+}
