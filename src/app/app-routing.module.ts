@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { PostComponent } from './post/post.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductComponent } from './product/product.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
@@ -46,6 +47,25 @@ const routes: Routes = [
     path: 'students/:id',
     component: StudentDetailComponent
   },
+  {
+   path:'posts',
+   component: PostComponent,
+   children:[
+     {
+      path: 'form',
+      component: PostComponent
+     },
+     {
+       path: 'form/:id',
+       component: PostComponent
+     },
+     {
+       path: ':id',
+       component: PostComponent
+     }
+
+   ]
+  }
 ];
 
 @NgModule({

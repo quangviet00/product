@@ -1,0 +1,53 @@
+<p>Post Form</p>
+<p>{{postForm.value | json}}</p>
+<div class="container">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit(postForm.value)">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+      <app-show-error
+      [formField]="postForm.get('title')"
+      key="Nội dung">
+
+      </app-show-error>
+      <!-- <div *ngIf="postForm.dirty" class="text-danger">
+        <p *ngIf="postForm.get('title')?.errors?.['required']">
+          Tiêu đề bắt buộc nhập
+        </p>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="content">Content</label>
+      <textarea class="form-control" id="content" formControlName="content"></textarea>
+      <app-show-error
+      [formField]="postForm.get('content')"
+      key="Nội dung">
+
+      </app-show-error>
+           <!-- <div *ngIf="postForm.dirty" class="text-danger">
+        <p *ngIf="postForm.get('content')?.errors?.['required']">
+          Nội dung bắt buộc nhập
+          <app-show-error message="Nội dung bắt buộc nhập"></app-show-error>
+        </p>
+      </div>
+      <div *ngIf="postForm.dirty" class="text-danger">
+        <p *ngIf="postForm.get('content')?.errors?.['minlength']">
+          Nội dung bắt buộc nhập
+        </p>
+      </div> -->
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" formControlName="author">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select class="form-control" id="status" formControlName="status">
+        <option value="1">1</option>
+        <option value="2">2</option>
+
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Submit</button>
+  </form>
+</div>

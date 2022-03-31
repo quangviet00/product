@@ -24,6 +24,18 @@ export class StudentComponent implements OnInit {
     this.studentService.deleteStudent(id).subscribe((data) => {
       this.onGetList();
     });
+
   }
 
+ parentChangeStatus(newStatus: number, studentId: any){
+   console.log(newStatus);
+      this.studentService.updateStudent(studentId, {
+        ...studentId,
+        status: newStatus}).subscribe((data) => {
+          this.onGetList();
+        }
+      );
+
+
+    }
 }

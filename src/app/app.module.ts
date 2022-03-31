@@ -17,6 +17,13 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { StudentFormComponent } from './student-form/student-form.component';
 import { StudentService } from './services/student.service';
 import { LayoutComponent } from './layout/layout.component';
+import { PostComponent } from './post/post.component';
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PostService } from './services/post.service';
+import { ShowErrorComponent } from './components/show-error/show-error.component';
+import { StatusComponent } from './components/status/status.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,16 +34,22 @@ import { LayoutComponent } from './layout/layout.component';
     StudentComponent,
     StudentDetailComponent,
     StudentFormComponent,
-    LayoutComponent
+    LayoutComponent,
+    PostComponent,
+    PostDetailComponent,
+    PostFormComponent,
+    ShowErrorComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule, // dua vao de cac component con co the sd,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [StudentService],
+  providers: [StudentService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

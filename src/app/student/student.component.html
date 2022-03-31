@@ -17,6 +17,11 @@
       <td>{{student.id}}</td>
       <td>{{student.name}}</td>
       <td>{{student.class}}</td>
+      <td><app-status
+        [status]="student.status"
+        (ChangeStatus)="parentChangeStatus($event,student.id)">
+
+      </app-status></td>
       <td>
         <a routerLink="/students/{{student.id}}">
           <button class="btn btn-primary">Detail</button>
